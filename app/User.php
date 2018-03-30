@@ -1,29 +1,38 @@
-<?php
+<?php namespace App;
+use Cartalyst\Sentinel\Users\EloquentUser;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+class User extends EloquentUser {
 
-class User extends Authenticatable
-{
-    use Notifiable;
+	/**
+	 * The database table used by the model.
+	 *
+	 * @var string
+	 */
+	protected $table = 'users';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+	/**
+	 * The attributes to be fillable from the model.
+	 *
+	 * A dirty hack to allow fields to be fillable by calling empty fillable array
+	 *
+	 * @var array
+	 */
+	protected $fillable = [];
+	protected $guarded = ['id'];
+	/**
+	 * The attributes excluded from the model's JSON form.
+	 *
+	 * @var array
+	 */
+	protected $hidden = ['password', 'remember_token'];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+	/**
+	* To allow soft deletes
+	*/
+	use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
+
 }

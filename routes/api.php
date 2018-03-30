@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+include_once 'api_builder.php';
 
 /*
 |--------------------------------------------------------------------------

@@ -1,0 +1,12 @@
+body
+{
+    margin:0;
+}
+.responsive_map {
+    display: block;
+    width: 95%;
+    margin: 0 auto;
+}
+.mt-15{
+    margin-top: 15px;
+}

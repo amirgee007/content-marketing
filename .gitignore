@@ -1,9 +1,11 @@
 /node_modules
-/resources/assets/bower_components
 /public/storage
+/storage/*.key
 /vendor
 /.idea
 Homestead.json
 Homestead.yaml
 .env
+composer.lock
 _ide_helper.php
+_ide_helper_models.php
